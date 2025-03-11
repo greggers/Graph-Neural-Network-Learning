@@ -15,7 +15,7 @@ Each lesson contains:
 
 ### **Module 1: Foundations**  
 1. **[Lesson 1: Foundations of Graphs in Machine Learning](./Lesson-1/README.md)**  
-2. *Lesson 2: Introduction to Graph Neural Networks (Coming Soon...)*  
+2. **[Lesson 2: Introduction to Graph Neural Networks](./Lesson-2/README.md)**
 3. *Lesson 3: Graph Convolutional Networks (GCN) - Theory & Implementation (Coming Soon...)*  
 
 ### **Module 2: Advanced GNN Architectures**  
@@ -63,4 +63,8 @@ More lessons coming soon! Follow this repository for updates.
 Have suggestions or want to contribute? Open an **issue** or submit a **pull request**!  
 
 ---
-**Author:** Greg Wagner, PhD | *gregorymwagner.com*  
+
+**Questions or Ideas?** Open an issue or contribute to this repository!  
+
+---
+**Author:** Greg Wagner, PhD | *[gregorymwagner.com](http://www.gregorymwagner.com)*  

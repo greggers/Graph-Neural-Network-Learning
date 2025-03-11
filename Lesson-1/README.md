@@ -108,3 +108,10 @@ plt.show()
 - **Graphs are powerful structures** that capture relationships in complex systems.
 - **Graph-based ML models outperform traditional ML** when data is inherently relational.
 - **Next Module:** Introduction to **Graph Neural Networks (GNNs)**—how to process and learn from graphs using deep learning.
+
+---
+
+**Questions or Ideas?** Open an issue or contribute to this repository!  
+
+---
+**Author:** Greg Wagner, PhD | *[gregorymwagner.com](http://www.gregorymwagner.com)* 
