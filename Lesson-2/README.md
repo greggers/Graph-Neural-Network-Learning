@@ -46,7 +46,7 @@ $$
 where:  
 - $\tilde{A} = A + I$ (adjacency matrix with self-loops).  
 - $\tilde{D}$ is the degree matrix.  
-- $H^{(k)}$ is the node feature matrix at layer $ k $.  
+- $H^{(k)}$ is the node feature matrix at layer $k$.  
 
 #### **GCN in PyTorch (DGL)**  
 ```python
