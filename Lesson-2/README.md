@@ -44,9 +44,9 @@ $$
 H^{(k+1)} = \sigma \left( \tilde{D}^{-1/2} \tilde{A} \tilde{D}^{-1/2} H^{(k)} W^{(k)} \right)
 $$  
 where:  
-- $ \tilde{A} = A + I $ (adjacency matrix with self-loops).  
-- $ \tilde{D} $ is the degree matrix.  
-- $ H^{(k)} $ is the node feature matrix at layer $ k $.  
+- $\tilde{A} = A + I$ (adjacency matrix with self-loops).  
+- $\tilde{D}$ is the degree matrix.  
+- $H^{(k)}$ is the node feature matrix at layer $ k $.  
 
 #### **GCN in PyTorch (DGL)**  
 ```python
@@ -78,7 +78,7 @@ Instead of equally weighting all neighbors, GATs **learn importance scores** bet
 $$
 \alpha_{ij} = \frac{\exp\left( \text{LeakyReLU} \left( a^T [W h_i || W h_j] \right) \right)}{\sum_{k \in \mathcal{N}(i)} \exp\left( \text{LeakyReLU} \left( a^T [W h_i || W h_k] \right) \right)}
 $$ 
-where $ \alpha_{ij} $ represents the attention score between node $ i $ and node $ j $.  
+where $\alpha_{ij}$ represents the attention score between node $i$ and node $j$.  
 
 #### **GAT in PyTorch (DGL)**  
 ```python
@@ -103,7 +103,7 @@ GraphSAGE improves scalability by **sampling** a subset of neighbors rather than
 $$
 h_v^{(k+1)} = \sigma \left( W \cdot \text{AGG} \left( \{ h_u^{(k)} | u \in S_{\mathcal{N}(v)} \} \right) \right)
 $$ 
-where $ S_{\mathcal{N}(v)} $ is a sampled subset of neighbors.  
+where $S_{\mathcal{N}(v)}$ is a sampled subset of neighbors.  
 
 #### **GraphSAGE in PyTorch (DGL)**  
 ```python
