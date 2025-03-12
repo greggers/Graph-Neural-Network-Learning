@@ -35,7 +35,46 @@ where:
 ---
 ## 2. Popular GNN Architectures  
 
-### **2.1 Graph Convolutional Networks (GCN)**  
+### **2.1 Message Passing Neural Networks (MPNNs)**
+
+MPNNs are a general framework for GNNs, unifying various GNN architectures. They consist of two main components:
+
+- **Message Function**: Generates messages from node features.
+- **Update Function**: Aggregates messages and updates node representations.
+
+#### **MPNN Update Equation** (Repeated from Above)
+$$
+h_v^{(k+1)} = \sigma \left( W \cdot \text{AGG} \left( \{ h_u^{(k)} | u \in \mathcal{N}(v) \} \right) \right)
+$$
+where:
+- $h_v^{(k)}$ is the hidden state of node $v$ at layer $k$.
+- $\text{AGG}(\cdot)$ is an aggregation function (sum, mean, max, attention).
+- $W$ is a learnable weight matrix.
+- $\sigma$ is a non-linear activation (e.g., ReLU).
+
+#### **MPNN in PyTorch (DGL)**
+```python
+import torch
+import torch.nn as nn
+import dgl
+import dgl.function as fn
+
+class MPNNLayer(nn.Module):
+    def __init__(self, in_feats, out_feats):
+        super().__init__()
+        self.message_func = fn.copy_u('h', 'm')
+        self.reduce_func = fn.sum('m', 'h')
+        self.update_func = nn.Linear(in_feats, out_feats)
+        self.reset_parameters()
+        def reset_parameters(self):
+            self.update_func.reset_parameters()
+            def forward(self, g, features):
+                g.ndata['h'] = features
+                g.update_all(self.message_func, self.reduce_func)
+                return self.update_func(g.ndata['h'])
+```
+
+### **2.2 Graph Convolutional Networks (GCN)**  
 
 GCNs extend the concept of **convolution** from CNNs to graphs. Instead of applying filters on grid-structured data, GCNs aggregate features from neighboring nodes.  
 
@@ -70,7 +109,7 @@ class GCNLayer(nn.Module):
 
 ---
 
-### **2.2 Graph Attention Networks (GAT)**  
+### **2.3 Graph Attention Networks (GAT)**  
 
 Instead of equally weighting all neighbors, GATs **learn importance scores** between nodes using an **attention mechanism**.  
 
@@ -95,7 +134,7 @@ class GAT(nn.Module):
 
 ---
 
-### **2.3 GraphSAGE (Sampling-Based GNN)**  
+### **2.4 GraphSAGE (Sampling-Based GNN)**  
 
 GraphSAGE improves scalability by **sampling** a subset of neighbors rather than aggregating all of them.  
 
